@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MongoDB Viewer</string>
+    <string name="title_activity_connections">ConnectionsActivity</string>
+</resources>
