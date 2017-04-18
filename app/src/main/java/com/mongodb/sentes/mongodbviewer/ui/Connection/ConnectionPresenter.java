@@ -30,7 +30,8 @@ public class ConnectionPresenter extends BasePresenter<ConnectionContract.View> 
             return;
         ArrayList<ConnectionClass> list = new ArrayList<ConnectionClass>();
         SQLiteDatabase database = mDbHelper.getReadableDatabase();
-        String[] projection = new String[]{"_id", ConnectionsDbContract.ConnectionsDbEntry.COLUMN_DB_NAME, ConnectionsDbContract.ConnectionsDbEntry.COLUMN_SERVER, ConnectionsDbContract.ConnectionsDbEntry.COLUMN_PORT};
+        String[] projection = new String[]{"_id", ConnectionsDbContract.ConnectionsDbEntry.COLUMN_DB_NAME, ConnectionsDbContract.ConnectionsDbEntry.COLUMN_SERVER, ConnectionsDbContract.ConnectionsDbEntry.COLUMN_PORT,
+                ConnectionsDbContract.ConnectionsDbEntry.COLUMN_USERNAME, ConnectionsDbContract.ConnectionsDbEntry.COLUMN_PW};
         Cursor cursor = database.query("condb", projection, (String) null, (String[]) null, (String) null, (String) null, (String) null);
         try {
             while (cursor.moveToNext()) {
@@ -38,11 +39,15 @@ public class ConnectionPresenter extends BasePresenter<ConnectionContract.View> 
                 int dbPickColumnIndex = cursor.getColumnIndex(ConnectionsDbContract.ConnectionsDbEntry.COLUMN_DB_NAME);
                 int serverPickColumnIndex = cursor.getColumnIndex(ConnectionsDbContract.ConnectionsDbEntry.COLUMN_SERVER);
                 int portColumnIndex = cursor.getColumnIndex(ConnectionsDbContract.ConnectionsDbEntry.COLUMN_PORT);
+                int usernameColumnIndex = cursor.getColumnIndex(ConnectionsDbContract.ConnectionsDbEntry.COLUMN_USERNAME);
+                int pwColumnIndex = cursor.getColumnIndex(ConnectionsDbContract.ConnectionsDbEntry.COLUMN_PW);
                 int currentID = cursor.getInt(idColumnIndex);
                 String currentDbName = cursor.getString(dbPickColumnIndex);
                 String currentServer = cursor.getString(serverPickColumnIndex);
                 String currentPort = cursor.getString(portColumnIndex);
-                list.add(new ConnectionClass(currentDbName, currentServer, currentPort));
+                String currentUsername = cursor.getString(usernameColumnIndex);
+                String currentPw = cursor.getString(pwColumnIndex);
+                list.add(new ConnectionClass(currentDbName, currentServer, currentPort, currentUsername, currentPw));
             }
         } finally {
             cursor.close();

@@ -1,5 +1,6 @@
 package com.mongodb.sentes.mongodbviewer.ui.Connection;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +12,10 @@ import android.widget.ListView;
 import com.mongodb.sentes.mongodbviewer.R;
 import com.mongodb.sentes.mongodbviewer.data.Database.Classes.ConnectionClass;
 import com.mongodb.sentes.mongodbviewer.data.Database.ConnectionsDbHelper;
+import com.mongodb.sentes.mongodbviewer.ui.Connection.ConnectionDetail.ConnectionDetailsActivity;
 import com.mongodb.sentes.mongodbviewer.ui.Connection.SetupConnection.SetupConnectionActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ConnectionsActivity extends AppCompatActivity implements ConnectionContract.View{
@@ -69,7 +72,9 @@ public class ConnectionsActivity extends AppCompatActivity implements Connection
 
     @Override
     public void showConnectionDetailUi(ConnectionClass connection) {
-
+        Intent intent = new Intent(this, ConnectionDetailsActivity.class);
+        intent.putExtra("connection", (Serializable) connection);
+        startActivity(intent);
     }
 
     @Override

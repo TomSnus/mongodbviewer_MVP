@@ -1,10 +1,12 @@
 package com.mongodb.sentes.mongodbviewer.data.Database.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Faßreiter on 17.04.2017.
  */
 
-public class ConnectionClass {
+public class ConnectionClass implements Serializable {
 
     private String dbname;
     private String server;
