@@ -1,4 +1,4 @@
-package com.mongodb.sentes.mongodbviewer;
+package com.mongodb.sentes.mongodbviewer.ui.Connection.Base;
 
 import android.support.annotation.NonNull;
 

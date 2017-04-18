@@ -1,4 +1,4 @@
-package com.mongodb.sentes.mongodbviewer;
+package com.mongodb.sentes.mongodbviewer.data.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;

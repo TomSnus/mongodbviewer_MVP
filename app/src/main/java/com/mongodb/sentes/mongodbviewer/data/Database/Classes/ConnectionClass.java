@@ -1,10 +1,10 @@
-package com.mongodb.sentes.mongodbviewer;
+package com.mongodb.sentes.mongodbviewer.data.Database.Classes;
 
 /**
  * Created by Faßreiter on 17.04.2017.
  */
 
-public class Connection {
+public class ConnectionClass {
 
     private String dbname;
     private String server;
@@ -12,7 +12,7 @@ public class Connection {
     private String username;
     private String password;
 
-    public Connection(String dbname, String server, String port, String username, String password) {
+    public ConnectionClass(String dbname, String server, String port, String username, String password) {
         this.dbname = dbname;
         this.server = server;
         this.port = port;
@@ -20,7 +20,7 @@ public class Connection {
         this.password = password;
     }
 
-    public Connection(String dbname, String server, String port) {
+    public ConnectionClass(String dbname, String server, String port) {
         this.dbname = dbname;
         this.server = server;
         this.port = port;
