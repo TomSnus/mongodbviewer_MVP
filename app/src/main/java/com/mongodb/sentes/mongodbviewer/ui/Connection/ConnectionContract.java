@@ -7,9 +7,6 @@ import com.mongodb.sentes.mongodbviewer.data.Database.Classes.ConnectionClass;
 
 import java.util.ArrayList;
 
-/**
- * Created by Faßreiter on 18.04.2017.
- */
 
 public class ConnectionContract {
 
